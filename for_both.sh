@@ -13,27 +13,23 @@ then
 fi
 
 
-
-
 if [[ $OS == "linux" ]];
 then
  CMD="uname -a"
 elif [[ $OS == "windows" ]]; then
  CMD="wmic os get Caption, Version, TotalVirtualMemorySize, FreePhysicalMemory /format:list"
 else
- echo "Unsupported operating system: $OS"
+ echo "unsuported os: $OS"
  exit 1
 fi
-
 
 #check reachable device using netcat
 nc -vz $ip_address 22 &> /dev/null
 
-
 #check if netcat command was successful
 if [ $? -ne 0 ];
 then
- echo "Error: Failed to connect to $ip_address on port 22"
+ echo "failed to connect to $ip_address on port 22"
  exit 1
 fi
 
@@ -51,7 +47,7 @@ fi
 #check is ssh was successful or not
 if [ $? -ne 0 ];
 then
- echo "Error: Failed to connect to $ip_address using SSH"
+ echo "Failed to connect to $ip_address using SSH"
  exit 1
 else
  echo "OS information for $ip_address:"
