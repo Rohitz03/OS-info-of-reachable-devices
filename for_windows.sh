@@ -4,6 +4,7 @@
 ip_address=$1
 username=$2
 
+
 if [ -z "$ip_address" ] || [ -z "$username" ]; 
 then
   echo "Error: Both IP address and username are required."
